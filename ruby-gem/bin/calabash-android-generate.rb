@@ -1,6 +1,6 @@
 
 def calabash_scaffold
-  if File.exists?(@features_dir)
+  if File.exist?(@features_dir)
     puts "A features directory already exists. Stopping..."
     exit 1
   end

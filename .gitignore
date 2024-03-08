@@ -15,7 +15,6 @@ calabash-android-*.gem
 # For a library or gem, ignore these files since the code is intended to run in
 # multiple environments; otherwise, check them in.
 Gemfile.lock
-.ruby-version
 .ruby-gemset
 .bundle
 
@@ -25,7 +24,6 @@ ruby-gem/tmp
 
 # emacs and vim
 (.*/)?\#[^/]*\#$
-tags
 
 # mergetools
 *.orig

@@ -71,28 +71,28 @@ class Env
   def self.find_executable_on_path(executable)
     path_elements.each do |x|
       f = File.join(x, executable)
-      return "\"#{f}\"" if File.exists?(f)
+      return "\"#{f}\"" if File.exist?(f)
     end
     nil
   end
 
   def self.path_if_jdk(path)
-    path if path && File.exists?(File.join(path, 'bin', jarsigner_executable))
+    path if path && File.exist?(File.join(path, 'bin', jarsigner_executable))
   end
 
   def self.zipalign_path
     zipalign_path = File.join(android_home_path, 'tools', zipalign_executable)
 
-    unless File.exists?(zipalign_path)
+    unless File.exist?(zipalign_path)
       calabash_log "Did not find zipalign at '#{zipalign_path}'. Trying to find zipalign in tools directories."
 
       tools_directories.each do |dir|
         zipalign_path = File.join(dir, zipalign_executable)
-        break if File.exists?(zipalign_path)
+        break if File.exist?(zipalign_path)
       end
     end
 
-    if File.exists?(zipalign_path)
+    if File.exist?(zipalign_path)
       calabash_log "Found zipalign at '#{zipalign_path}'"
       zipalign_path
     else
@@ -148,7 +148,7 @@ class Env
   end  
 
   def self.path_if_android_home(path)
-    path if path && File.exists?(File.join(path, 'platform-tools', adb_executable))
+    path if path && File.exist?(File.join(path, 'platform-tools', adb_executable))
   end
 
   def self.path_elements
@@ -158,7 +158,7 @@ class Env
 
   def self.read_attribute_from_monodroid_config(element, attribute)
     monodroid_config_file = File.expand_path("~/.config/xbuild/monodroid-config.xml")
-    if File.exists?(monodroid_config_file)
+    if File.exist?(monodroid_config_file)
       require 'rexml/document'
       begin
         return REXML::Document.new(IO.read(monodroid_config_file)).elements["//#{element}"].attributes[attribute]

@@ -10,7 +10,7 @@ module Calabash
                                      'calabash-android-server'))
 
         unless File.exist?(calabash_server_dir) &&
-            File.exists?(File.join(calabash_server_dir, "server", "calabash-js", "src"))
+            File.exist?(File.join(calabash_server_dir, "server", "calabash-js", "src"))
           raise %Q[
 Expected to find the calabash-android-server repo at:
 
@@ -115,3 +115,7 @@ begin
 rescue LoadError => _
 end
 
+
+# refactored raketasks
+require_relative 'lib/calabash-android.rb'
+Dir['tasks/**/*.rb'].each { |file| require_relative file }

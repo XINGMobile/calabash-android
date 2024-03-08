@@ -116,3 +116,20 @@ If it seems that buttons/text aren't being clicked properly, you need to add the
 Where SDK_VERSION is the version of the Android SDK you are using. Version numbers can be found [here](http://developer.android.com/reference/android/os/Build.VERSION_CODES.html)
 
 For example, Android 4.0 uses version 14, Android 4.0.3 uses version 15 and Android 4.1 uses version 16.
+
+
+
+## Release
+
+In order to have your changes available you need to:
+
+- Create a Pull Request that include below changes (or aggregate them with your changes)
+  - Bump the version in `calabash-cucumber/lib/calabash-android/version.rb` (try to follow [semantic versioning](https://semver.org))
+  - Navigate to `calabash-android/` folder
+  - Run `bundle` (which will regenerate the `Gemfile.lock`)
+- Get the Pull Request approved and merged.
+- Create and Publish the new tag based on the version by:
+  - Switching locally to `master` branch and pulling the update version that was merged above
+  - Run `bundle exec rake tags:create`.
+
+Now you will be able to update the needed tag in the repositories needing it.

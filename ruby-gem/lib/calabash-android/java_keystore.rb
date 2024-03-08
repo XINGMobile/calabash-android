@@ -3,7 +3,7 @@ class JavaKeystore
   attr_reader :signature_algorithm_name
 
   def initialize(location, keystore_alias, password, key_password = nil)
-    raise "No such keystore file '#{location}'" unless File.exists?(File.expand_path(location))
+    raise "No such keystore file '#{location}'" unless File.exist?(File.expand_path(location))
     calabash_log "Reading keystore data from keystore file '#{File.expand_path(location)}'"
 
     keystore_data = system_with_stdout_on_success(Calabash::Android::Dependencies.keytool_path, '-list', '-v', '-alias', keystore_alias, '-keystore', location, '-storepass', password, '-J"-Dfile.encoding=utf-8"', '-J"-Duser.language=en-US"')
@@ -47,7 +47,7 @@ class JavaKeystore
 
   def sign_apk(apk_path, dest_path)
     raise "Cannot sign with a miss configured keystore" if errors
-    raise "No such file: #{apk_path}" unless File.exists?(apk_path)
+    raise "No such file: #{apk_path}" unless File.exist?(apk_path)
 
     # E.g. MD5withRSA or MD5withRSAandMGF1
     encryption = signature_algorithm_name.split('with')[1].split('and')[0]
@@ -100,7 +100,7 @@ class JavaKeystore
   def self.read_keystore_with_default_password_and_alias(path)
     path = File.expand_path path
 
-    if File.exists? path
+    if File.exist? path
       keystore = JavaKeystore.new(path, 'androiddebugkey', 'android')
       if keystore.errors
         calabash_log "Trying to "
