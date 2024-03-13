@@ -119,6 +119,20 @@ For example, Android 4.0 uses version 14, Android 4.0.3 uses version 15 and Andr
 
 
 
+
+## Build a version with updated Server
+
+Releasing a new version that includes an updated server `TestServer.apk` requires a few steps
+- Build the test server files of `calabash-android-server` project
+- Copy generated `TestServer.apk` & `AndroidManifest.xml` files to `ruby-gem/lib/calabash-android/lib/`
+  - potentially:
+```
+cp ../calabash-android-server/AndroidManifest.xml ./ruby-gem/lib/calabash-android/lib/
+cp ../calabash-android-server/TestServer.apk ./ruby-gem/lib/calabash-android/lib/
+```
+- Bump the ruby gem version in `ruby-gem/lib/calabash-android/version.rb`
+- Release the new version by tagging (see below) (or building)
+
 ## Release
 
 In order to have your changes available you need to:
