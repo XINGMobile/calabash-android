@@ -1,7 +1,6 @@
 begin
   require 'rubygems'
   require 'irb/completion'
-  require 'irb/ext/save-history'
 
   begin
     require 'awesome_print'
@@ -75,4 +74,3 @@ def enable_usage_tracking(level="system_info")
   puts "Calabash will collect statistics using the '#{level}' rule."
   level
 end
-

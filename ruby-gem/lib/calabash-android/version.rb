@@ -1,6 +1,6 @@
 module Calabash
   module Android
-    VERSION = "0.9.30"
+    VERSION = "0.9.31"
 
     # A model of a software release version that can be used to compare two versions.
     #
