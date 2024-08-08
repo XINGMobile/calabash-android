@@ -41,29 +41,30 @@ into a valid version, e.g. 1.2.3 or 1.2.3.pre10
        "lib/calabash-android/lib/AndroidManifest.xml"]
   end.call
 
-  s.add_dependency( "awesome_print", '~> 1.2')
-  s.add_dependency( 'cucumber' )
-  s.add_dependency( 'escape', '~> 0.0.4')
-  s.add_dependency( 'httpclient', '>= 2.7.1', '< 3.0')
-  s.add_dependency( 'json' )
-  s.add_dependency( 'rexml' )
-  s.add_dependency( "rubyzip", "1.3.0")
-  s.add_dependency( "slowhandcuke", '~> 0.0.3')
+  s.add_dependency 'awesome_print', '~> 1.2'
+  s.add_dependency 'cucumber'
+  s.add_dependency 'escape', '~> 0.0.4'
+  s.add_dependency 'httpclient', '>= 2.7.1', '< 3.0'
+  s.add_dependency 'json'
+  s.add_dependency 'rexml'
+  s.add_dependency 'rubyzip', '1.3.0'
+  s.add_dependency 'slowhandcuke', '~> 0.0.3'
 
-  s.add_development_dependency( 'rake')
-  s.add_development_dependency( 'yard', '>= 0.9.12', '< 1.0' )
-  puts RUBY_PLATFORM
-  if RUBY_PLATFORM[/darwin/] || RUBY_PLATFORM["linux"]
-    s.add_development_dependency( 'redcarpet', '~> 3.1' )
-  end
-  s.add_development_dependency( "rspec_junit_formatter" )
-  s.add_development_dependency( "rspec", "~> 3.0" )
-  s.add_development_dependency( "pry" )
-  s.add_development_dependency( "pry-nav" )
-  s.add_development_dependency( "guard-rspec" )
-  s.add_development_dependency( "guard-bundler" )
+  s.add_development_dependency 'growl'
+  s.add_development_dependency 'guard-bundler'
+  s.add_development_dependency 'guard-rspec'
   # Pin to 3.0.6; >= 3.1.0 requires ruby 2.2. This is guard dependency.
-  s.add_development_dependency("listen", "3.0.6")
-  s.add_development_dependency( "growl" )
-  s.add_development_dependency( "stub_env" )
+  s.add_development_dependency 'listen', '3.0.6'
+  s.add_development_dependency 'pry'
+  s.add_development_dependency 'pry-nav'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'rspec', '~> 3.0'
+  s.add_development_dependency 'rspec_junit_formatter'
+  s.add_development_dependency 'stub_env'
+  s.add_development_dependency 'yard', '>= 0.9.12', '< 1.0'
+
+  puts RUBY_PLATFORM
+  if RUBY_PLATFORM[/darwin/] || RUBY_PLATFORM['linux']
+    s.add_development_dependency 'redcarpet', '~> 3.1'
+  end
 end

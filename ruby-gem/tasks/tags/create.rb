@@ -3,11 +3,11 @@
 namespace :tags do
   desc 'create a new tag locally and remotely'
   task :create do
-    # check that the current branch is master
-    puts "checking that current branch is 'master'"
+    # check that the current branch is main
+    puts "checking that current branch is 'main'"
     current_branch = `git branch --show-current`
-    if !Process.last_status.success? || current_branch != "master\n"
-      raise "this rake can only be run from 'master' branch\n"
+    if !Process.last_status.success? || current_branch != "main\n"
+      raise "this rake can only be run from 'main' branch\n"
     end
 
     # fetch latest xing_mobile_fork state
@@ -15,10 +15,10 @@ namespace :tags do
     `git fetch xing_mobile_fork --tags`
     raise "this rake can only be run with an 'xing_mobile_fork' remote setup\n" unless Process.last_status.success?
 
-    # check that there are no differences between master and remote master
-    puts 'checking diffs between local and remote master'
-    differences = `git diff --name-only master xing_mobile_fork/master`
-    raise "please pull the latest changes to 'master' branch\n" if !Process.last_status.success? || differences != ''
+    # check that there are no differences between main and remote main
+    puts 'checking diffs between local and remote main'
+    differences = `git diff --name-only main xing_mobile_fork/main`
+    raise "please pull the latest changes to 'main' branch\n" if !Process.last_status.success? || differences != ''
 
     # check that there are no remote tags with same number
     current_version = Calabash::Android::VERSION
