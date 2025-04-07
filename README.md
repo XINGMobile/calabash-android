@@ -135,11 +135,16 @@ cp ../calabash-android-server/TestServer.apk ./ruby-gem/lib/calabash-android/lib
 
 ## Release
 
+### Release Gem
+
+Follow [Configure JFROG for Ruby](https://fantastic-couscous-zwrnp14.pages.github.io/getting-started/configurations/jfrog-ruby#) Documentation.
+
+### (Legacy) Release Tag
+
 In order to have your changes available you need to:
 
 - Create a Pull Request that include below changes (or aggregate them with your changes)
-  - Bump the version in `calabash-cucumber/lib/calabash-android/version.rb` (try to follow [semantic versioning](https://semver.org))
-  - Navigate to `calabash-android/` folder
+  - Bump the version in `ruby-gem/lib/calabash-android/version.rb` (try to follow [semantic versioning](https://semver.org))
   - Run `bundle` (which will regenerate the `Gemfile.lock`)
 - Get the Pull Request approved and merged.
 - Create and Publish the new tag based on the version by:
